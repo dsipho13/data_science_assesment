@@ -46,11 +46,8 @@ Run the following notebook `assessment_notebook.ipybn` for the followinf
 
 ### **3️ Model Inference**  
 To make predictions on new student data:  
------
+ ---
 ## Key Findings
-Thank you for all the detailed findings! Based on everything you've shared, here are the **top 6 key findings**:
-
-### ** Top 6 Key Findings**
 
 1️ **Academic Performance is Crucial for Success**  
    - **Assessment Percentage** and **Assessment Score** have a strong positive correlation with **final results**. Higher scores consistently lead to better performance outcomes, with lower scores corresponding to failure or withdrawal. This underscores the importance of focusing on students' academic performance as a critical predictor of success.
@@ -71,8 +68,6 @@ Thank you for all the detailed findings! Based on everything you've shared, here
    - **Spearman's coefficient** analysis and the **Chi-squared test** both highlight **sum clicks** as the most influential feature, followed by **assessment percentage** and **assessment score**. While both tests reinforce the importance of academic performance, **student engagement (sum clicks)** emerges as an especially strong predictor, emphasizing the role of VLE interaction in achieving better student outcomes.
 
 ---
-
-These findings suggest that **student engagement** (clicks, activity count, consistency in participation) and **academic performance** (assessment scores and percentages) are the most important predictors of student success. Focusing on improving these areas, especially engagement through VLE, could lead to more effective interventions and better student outcomes.
 ## ** Model Performance**  
 | Metric | Score |
 |--------|-------|
