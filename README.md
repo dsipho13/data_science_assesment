@@ -1,61 +1,118 @@
-# Data Science Assessment
+# **Student Performance Prediction using Machine Learning**  
 
-## Getting Started
+## **Project Overview**  
+This project aims to predict **student performance** based on their engagement with the Virtual Learning Environment (VLE) and assessment scores. Using **XGBoost**, we classify students into performance categories (e.g., Pass, Fail, Withdrawn). The goal is to identify at-risk students early, allowing for timely interventions. 
 
-1. **Fork this Repository**: Before starting the assessment, please fork this repository to your own GitHub account. This will allow you to submit your work later.
+## **Technical Summary of the Model: Student Performance Prediction**  
 
-2. **Clone Your Fork**: Clone your forked repository to your local machine to begin working.
+---
 
-3. **Dataset**: This assessment uses the Open University Learning Analytics Dataset (OULAD), which contains student interaction data with a Virtual Learning Environment. Sample data is provided in the `oulad_data` directory, or you can download the full dataset from [the official source](https://analyse.kmi.open.ac.uk/open-dataset/download).
+## ** Machine Learning Approach**  
+We employ an **XGBoost Multiclass Classifier**, a gradient boosting algorithm known for its efficiency and accuracy in handling structured data.  
 
-4. **Setup**: Run the following commands to set up your environment if you not sure how to get the training dat:
+#### **Why XGBoost?**  
+- Handles missing data effectively  
+- Works well with tabular datasets  
+- Provides feature importance insights  
+- Optimized for speed and performance  
+
+---
+
+### ** Dataset & Feature Engineering**  
+The model is trained on the **Open University Learning Analytics Dataset (OULAD)**.  
+
+#### **Key Features Used:**  
+| Feature | Type | Description |
+|---------|------|------------|
+| `assessment_score` | Numerical | Percentage score in assessments |
+| `sum_click` | Numerical | Total number of student clicks in the VLE |
+| `number_of_weeks_on_vle` | Numerical | Engagement duration in weeks |
+| `activity_count` | Numerical | Number of unique activities accessed |
+| `num_of_prev_attempts` | Numerical | Previous attempts in the same course |
+| `studied_credits` | Numerical | Total study credits registered |
+| `imd_band` | Categorical | Socioeconomic background grouping |
+| `gender` | Categorical | Student gender |
+| `highest_education` | Categorical | Student's highest education level |
+
+---
+## **Dataset**  
+We use the **Open University Learning Analytics Dataset (OULAD)**, which contains data on student interactions with online learning materials, assessment scores, and final results.  
+
+### **Key Data Files**  
+- `studentInfo.csv` – Contains student demographics and final results.  
+- `studentAssessment.csv` – Includes student scores on various assessments.  
+- `studentVLE.csv` – Tracks student interactions (clicks) with the VLE.  
+
+### **Feature Highlights**  
+| Feature | Description |
+|---------|------------|
+| `assessment_score` | Percentage score in assessments |
+| `sum_click` | Total number of clicks on VLE activities |
+| `number_of_weeks_on_vle` | Duration of student engagement in weeks |
+| `activity_count` | Number of different activities accessed |
+| `final_result` | Target variable (Pass, Fail, Withdrawn, Distinction) |
+
+## **🛠️ Setup & Installation**  
+1. **Clone the repository:**  
    ```bash
-
-  #create the data directory
-  mkdir oulad_data
-
-   # Install required packages
-   pip install pandas numpy matplotlib seaborn scikit-learn
-   
-   # Generate sample data (if needed)
-   python create_sample_data.py
-   
+   git clone https://github.com/dsipho13/data_science_assesment/tree/assessment
+   cd student-performance-prediction
+   ```
+2. **Install dependencies:**  
+   ```bash
+   pip install -r requirements.txt
    ```
 
-## Assessment Structure
+3. **Create the dataset:**  
+   - run `create_sample_data.py` file using python
+   - Place the dataset inside the `oulad_data/` directory.  
 
-This assessment consists of three main parts, with a total time of approximately 4-5 hours.
+## ** Usage**
+Run the following notebook `assessment_notebook.ipybn` for the followinf
+### **1️ Data Preprocessing & EDA**  
+   - explore and preprocess the dataset:  
+   - generates **EDA visualizations**.  
 
-### 1. Data Exploration (1 to 1.5 hours)
+### **2️ Model Training & Evaluation**  
+- This will train an **XGBoost multiclass classifier** and output key performance metrics (accuracy, precision, recall, F1-score).  
 
-- **Task**: Perform data analysis (cleaning, visualizations, identifying trends).
-- **Goal**: Identify key patterns in student behavior and performance based on content type, topics, and time spent in the Virtual Learning Environment.
-- **Deliverables**: 
-  - Python notebook or script with your analysis
-  - Key visualizations highlighting important patterns
-  - Brief summary of your findings
+### **3️ Model Inference**  
+To make predictions on new student data:  
+ ---
+## Key Findings
 
-### 2. Model Proposal (1.5 to 2 hours)
+1️ **Academic Performance is Crucial for Success**  
+   - **Assessment Percentage** and **Assessment Score** have a strong positive correlation with **final results**. Higher scores consistently lead to better performance outcomes, with lower scores corresponding to failure or withdrawal. This underscores the importance of focusing on students' academic performance as a critical predictor of success.
 
-- **Task**: Propose a machine learning model to predict student performance or engagement.
-- **Goal**: Justify your model choice and provide a basic summary of its performance.
-- **Deliverables**:
-  - Python notebook or script implementing your model
-  - Explanation of why you chose this model (e.g., decision trees, random forest)
-  - Performance metrics (accuracy, precision, recall, etc.)
-  - Discussion of feature importance
+2️ **Engagement Metrics are Strong Predictors**  
+   - **Sum of Clicks** and **Activity Count** in the **Virtual Learning Environment (VLE)** show a strong positive correlation with final results. Students who are more engaged (measured by higher activity levels and more interactions on the VLE) tend to perform better, with those less engaged being more likely to fail or withdraw.
 
-### 3. Presentation Preparation (1.5 to 2 hours)
+3️ **Consistency in Participation Matters**  
+   - The **Number of Weeks on VLE** is another significant factor. Although the correlation is weak compared to other features, consistent and sustained participation on the VLE is associated with better outcomes, indicating the value of long-term engagement in academic activities.
 
-#### For the Tech Lead:
-- Provide a comprehensive README in your repository.
-- Include:
-  - A technical summary of your model and why it was chosen
-  - Key findings from your analysis (trends in content effectiveness, user engagement)
-  - Instructions for reproducing your results
+4️ **Low Credit Load Does Not Predict Poor Performance**  
+   - **Studied Credits** show no significant correlation with final results. This suggests that the number of credits a student takes does not directly influence their success or failure. Students with varying credit loads performed similarly, pointing to other factors playing a more crucial role in predicting performance.
 
-#### For the Non-Tech Person:
-- Provide 1-2 clear visuals (graphs like bar charts, heatmaps, etc.)
-- A basic writeup explaining:
-  - Key findings in simple terms (e.g., "Video content helps students perform better in Math")
-  - Actionable insights (e.g., "Content personalization can be done based on quiz performance")
+5️ **Previous Attempts Have Minimal Impact**  
+   - The **Number of Previous Attempts** does not show a significant relationship with final results, suggesting that students who retry the course do not necessarily achieve better outcomes. This implies that simply allowing more attempts does not guarantee success.
+
+6️ **Key Features Identified by Statistical Tests**  
+   - **Spearman's coefficient** analysis and the **Chi-squared test** both highlight **sum clicks** as the most influential feature, followed by **assessment percentage** and **assessment score**. While both tests reinforce the importance of academic performance, **student engagement (sum clicks)** emerges as an especially strong predictor, emphasizing the role of VLE interaction in achieving better student outcomes.
+
+---
+## ** Model Performance**  
+| Metric | Score |
+|--------|-------|
+| Accuracy | 99.6% |
+| Precision | 99.6% |
+| F1 Score | 99.6% |
+
+## ** Feature Importance**  
+The most influential features in predicting student outcomes:  
+1. **Assessment Scores** (strongest predictor)  
+2. **Number of Clicks in VLE** (engagement level)  
+3. **Weeks Engaged in Activities** (consistent participation)  
+4. **Number of Activities Accessed** (learning diversity)  
+
+## **Future Improvements**  
+- Implement early warning models that predict student success **before assessments**.  
