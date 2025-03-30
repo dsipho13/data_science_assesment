@@ -1,8 +1,40 @@
 # **Student Performance Prediction using Machine Learning**  
 
 ## **Project Overview**  
-This project aims to predict **student performance** based on their engagement with the Virtual Learning Environment (VLE) and assessment scores. Using **XGBoost**, we classify students into performance categories (e.g., Pass, Fail, Withdrawn). The goal is to identify at-risk students early, allowing for timely interventions.  
+This project aims to predict **student performance** based on their engagement with the Virtual Learning Environment (VLE) and assessment scores. Using **XGBoost**, we classify students into performance categories (e.g., Pass, Fail, Withdrawn). The goal is to identify at-risk students early, allowing for timely interventions. 
 
+## **Technical Summary of the Model: Student Performance Prediction**  
+
+---
+
+## ** Machine Learning Approach**  
+We employ an **XGBoost Multiclass Classifier**, a gradient boosting algorithm known for its efficiency and accuracy in handling structured data.  
+
+#### **Why XGBoost?**  
+- Handles missing data effectively  
+- Works well with tabular datasets  
+- Provides feature importance insights  
+- Optimized for speed and performance  
+
+---
+
+### ** Dataset & Feature Engineering**  
+The model is trained on the **Open University Learning Analytics Dataset (OULAD)**.  
+
+#### **Key Features Used:**  
+| Feature | Type | Description |
+|---------|------|------------|
+| `assessment_score` | Numerical | Percentage score in assessments |
+| `sum_click` | Numerical | Total number of student clicks in the VLE |
+| `number_of_weeks_on_vle` | Numerical | Engagement duration in weeks |
+| `activity_count` | Numerical | Number of unique activities accessed |
+| `num_of_prev_attempts` | Numerical | Previous attempts in the same course |
+| `studied_credits` | Numerical | Total study credits registered |
+| `imd_band` | Categorical | Socioeconomic background grouping |
+| `gender` | Categorical | Student gender |
+| `highest_education` | Categorical | Student's highest education level |
+
+---
 ## **Dataset**  
 We use the **Open University Learning Analytics Dataset (OULAD)**, which contains data on student interactions with online learning materials, assessment scores, and final results.  
 
