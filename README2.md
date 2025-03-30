@@ -46,9 +46,33 @@ Run the following notebook `assessment_notebook.ipybn` for the followinf
 
 ### **3️ Model Inference**  
 To make predictions on new student data:  
-
+-----
 ## Key Findings
+Thank you for all the detailed findings! Based on everything you've shared, here are the **top 6 key findings**:
 
+### ** Top 6 Key Findings**
+
+1️ **Academic Performance is Crucial for Success**  
+   - **Assessment Percentage** and **Assessment Score** have a strong positive correlation with **final results**. Higher scores consistently lead to better performance outcomes, with lower scores corresponding to failure or withdrawal. This underscores the importance of focusing on students' academic performance as a critical predictor of success.
+
+2️ **Engagement Metrics are Strong Predictors**  
+   - **Sum of Clicks** and **Activity Count** in the **Virtual Learning Environment (VLE)** show a strong positive correlation with final results. Students who are more engaged (measured by higher activity levels and more interactions on the VLE) tend to perform better, with those less engaged being more likely to fail or withdraw.
+
+3️ **Consistency in Participation Matters**  
+   - The **Number of Weeks on VLE** is another significant factor. Although the correlation is weak compared to other features, consistent and sustained participation on the VLE is associated with better outcomes, indicating the value of long-term engagement in academic activities.
+
+4️ **Low Credit Load Does Not Predict Poor Performance**  
+   - **Studied Credits** show no significant correlation with final results. This suggests that the number of credits a student takes does not directly influence their success or failure. Students with varying credit loads performed similarly, pointing to other factors playing a more crucial role in predicting performance.
+
+5️ **Previous Attempts Have Minimal Impact**  
+   - The **Number of Previous Attempts** does not show a significant relationship with final results, suggesting that students who retry the course do not necessarily achieve better outcomes. This implies that simply allowing more attempts does not guarantee success.
+
+6️ **Key Features Identified by Statistical Tests**  
+   - **Spearman's coefficient** analysis and the **Chi-squared test** both highlight **sum clicks** as the most influential feature, followed by **assessment percentage** and **assessment score**. While both tests reinforce the importance of academic performance, **student engagement (sum clicks)** emerges as an especially strong predictor, emphasizing the role of VLE interaction in achieving better student outcomes.
+
+---
+
+These findings suggest that **student engagement** (clicks, activity count, consistency in participation) and **academic performance** (assessment scores and percentages) are the most important predictors of student success. Focusing on improving these areas, especially engagement through VLE, could lead to more effective interventions and better student outcomes.
 ## ** Model Performance**  
 | Metric | Score |
 |--------|-------|
